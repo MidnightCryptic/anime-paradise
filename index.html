@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anime Paradise</title>
     <style>
+        /* General Styling */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -21,32 +22,63 @@
             font-size: 2.5em;
             margin: 0;
         }
+
+        /* Search Bar Styling */
+        .search-bar {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+        }
+
+        /* Anime Section Styling */
         #anime-section {
             padding: 20px;
-            background-color: #0f1f3a;
-            margin-top: 20px;
             text-align: center;
         }
         #anime-section h2 {
             color: #34a2eb;
+            cursor: pointer;
         }
-        .anime-info img {
+        #anime-section img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
             margin-bottom: 20px;
+            cursor: pointer;
         }
-        .watch-link {
-            display: block;
+        .episodes-list {
+            display: none;
+            margin-top: 20px;
+        }
+        .episode {
+            margin: 10px 0;
             color: #34a2eb;
-            font-size: 1.2em;
             text-decoration: none;
-            margin-top: 10px;
+            font-size: 1.2em;
         }
-        .watch-link:hover {
+        .episode:hover {
+            text-decoration: underline;
+        }
+        .download {
+            color: #f8c32d;
+            margin-left: 10px;
+        }
+        .download:hover {
             text-decoration: underline;
         }
     </style>
+    <script>
+        function toggleEpisodes() {
+            const episodesList = document.querySelector('.episodes-list');
+            episodesList.style.display = episodesList.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </head>
 <body>
 
@@ -55,14 +87,26 @@
         <h1>Welcome to Anime Paradise</h1>
     </header>
 
+    <!-- Search Bar Section -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search for an anime..." id="searchBar">
+    </div>
+
     <!-- Anime Section -->
     <section id="anime-section">
-        <h2>Log Horizon S01</h2>
-        <div class="anime-info">
-            <!-- Image linked from your GitHub repository -->
-            <img src="assets/images/log-horizon-poster.jpeg" alt="Log Horizon S01">
-            <p>Enjoy the adventures of Log Horizon! Click below to watch.</p>
-            <a href="https://cuty.io/Cm6CterT9fXD" target="_blank" class="watch-link">Watch Episode 1</a>
+        <h2 onclick="toggleEpisodes()">Log Horizon S01</h2>
+        <img src="assist/log-horizon-poster.jpeg" alt="Log Horizon S01 Poster" onclick="toggleEpisodes()">
+
+        <!-- Episodes List -->
+        <div class="episodes-list">
+            <!-- Episode 1 -->
+            <a href="https://cuty.io/Cm6CterT9fXD" class="episode" target="_blank">Episode 1: The Adventurers</a>
+            <a href="https://cuty.io/Cm6CterT9fXD" class="download" target="_blank">[Download]</a>
+            <!-- Placeholder for future episodes -->
+            <a href="https://cuty.io/loghorizon-s01e2" class="episode" target="_blank">Episode 2: The Tower of Sweets</a>
+            <a href="https://cuty.io/loghorizon-s01e2" class="download" target="_blank">[Download]</a>
+            <a href="https://cuty.io/loghorizon-s01e3" class="episode" target="_blank">Episode 3: Dungeon Raid</a>
+            <a href="https://cuty.io/loghorizon-s01e3" class="download" target="_blank">[Download]</a>
         </div>
     </section>
 
